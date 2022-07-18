@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 27, 2021 at 04:02 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- Host: localhost
+-- Generation Time: Jul 18, 2022 at 03:10 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,8 @@ CREATE TABLE `admin_login` (
 --
 
 INSERT INTO `admin_login` (`id`, `name`, `admin_user`, `admin_password`, `admin_status`) VALUES
-(13, 'CampCodes', 'admin@campcodes.com', '$2y$12$yjn.g4FtUoXrOqqNMka/Mu/4tq7Brp7Q.aAILGCrjpw.iHKas/uC.', '');
+(13, 'CampCodes', 'admin@campcodes.com', '$2y$12$yjn.g4FtUoXrOqqNMka/Mu/4tq7Brp7Q.aAILGCrjpw.iHKas/uC.', ''),
+(14, 'Kaseeta C', 'mujjuzi2030@gmail.com', '$2y$12$w5GCvoL8gCc9/EVlpC8CbO6ifh7oWQzO2fmAjzqswKxLgznCaIhlG', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -56,8 +57,8 @@ CREATE TABLE `history_log` (
   `actions` varchar(200) NOT NULL DEFAULT 'Has LoggedOut the system at',
   `ip` text NOT NULL,
   `host` text NOT NULL,
-  `login_time` varchar(200) NOT NULL,
-  `logout_time` varchar(200) NOT NULL
+  `login_time` varchar(200) NOT NULL DEFAULT current_timestamp(),
+  `logout_time` varchar(200) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -65,8 +66,14 @@ CREATE TABLE `history_log` (
 --
 
 INSERT INTO `history_log` (`log_id`, `id`, `email_address`, `action`, `actions`, `ip`, `host`, `login_time`, `logout_time`) VALUES
-(0, 1, 'nario@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:36 PM', 'May-30-2019 04:33 PM'),
-(0, 1, 'nario@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-30-2019 04:30 PM', 'May-30-2019 04:33 PM');
+(1, 1, 'nario@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:36 PM', 'May-30-2019 04:33 PM'),
+(2, 1, 'nario@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-30-2019 04:30 PM', 'May-30-2019 04:33 PM'),
+(3, 3, 'mayanjaadrian242@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 04:50 PM', 'Jul-18-2022 05:28 PM'),
+(4, 4, 'kaseetac@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:00 PM', 'Jul-18-2022 05:27 PM'),
+(5, 4, 'kaseetac@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:21 PM', 'Jul-18-2022 05:27 PM'),
+(6, 4, 'kaseetac@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:27 PM', 'Jul-18-2022 05:27 PM'),
+(7, 3, 'mayanjaadrian242@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:28 PM', 'Jul-18-2022 05:28 PM'),
+(8, 3, 'mayanjaadrian242@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 06:30 PM', '2022-07-18 13:30:55');
 
 -- --------------------------------------------------------
 
@@ -82,8 +89,8 @@ CREATE TABLE `history_log1` (
   `actions` varchar(200) NOT NULL DEFAULT 'Has LoggedOut the system at',
   `ip` text NOT NULL,
   `host` text NOT NULL,
-  `login_time` varchar(200) NOT NULL,
-  `logout_time` varchar(200) NOT NULL
+  `login_time` varchar(200) NOT NULL DEFAULT current_timestamp(),
+  `logout_time` varchar(200) NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,12 +98,19 @@ CREATE TABLE `history_log1` (
 --
 
 INSERT INTO `history_log1` (`log_id`, `id`, `admin_user`, `action`, `actions`, `ip`, `host`, `login_time`, `logout_time`) VALUES
-(0, 11, 'richard@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:34 PM', 'May-29-2019 02:35 PM'),
-(0, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:35 PM', 'Mar-27-2021 10:59 PM'),
-(0, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:37 PM', 'Mar-27-2021 10:59 PM'),
-(0, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-30-2019 04:33 PM', 'Mar-27-2021 10:59 PM'),
-(0, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'keystone.mwbsys.com', 'Mar-27-2021 10:56 PM', 'Mar-27-2021 10:59 PM'),
-(0, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'keystone.mwbsys.com', 'Mar-27-2021 10:59 PM', 'Mar-27-2021 11:00 PM');
+(1, 11, 'richard@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:34 PM', 'May-29-2019 02:35 PM'),
+(2, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:35 PM', 'Mar-27-2021 10:59 PM'),
+(3, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-29-2019 02:37 PM', 'Mar-27-2021 10:59 PM'),
+(4, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '::1', 'buhayko-PC', 'May-30-2019 04:33 PM', 'Mar-27-2021 10:59 PM'),
+(5, 12, 'joneltoledo@yahoo.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'keystone.mwbsys.com', 'Mar-27-2021 10:56 PM', 'Mar-27-2021 10:59 PM'),
+(6, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'keystone.mwbsys.com', 'Mar-27-2021 10:59 PM', 'Jul-18-2022 06:26 PM'),
+(7, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 03:49 PM', 'Jul-18-2022 06:26 PM'),
+(8, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:36 PM', 'Jul-18-2022 06:26 PM'),
+(9, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:37 PM', 'Jul-18-2022 06:26 PM'),
+(10, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:37 PM', 'Jul-18-2022 06:26 PM'),
+(11, 13, 'admin@campcodes.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 05:51 PM', 'Jul-18-2022 06:26 PM'),
+(12, 14, 'mujjuzi2030@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 06:27 PM', 'Jul-18-2022 06:27 PM'),
+(13, 14, 'mujjuzi2030@gmail.com', 'Has LoggedIn the system at', 'Has LoggedOut the system at', '127.0.0.1', 'localhost', 'Jul-18-2022 06:28 PM', '2022-07-18 13:28:05');
 
 -- --------------------------------------------------------
 
@@ -109,8 +123,16 @@ CREATE TABLE `login_user` (
   `name` text NOT NULL,
   `email_address` text NOT NULL,
   `user_password` text NOT NULL,
-  `user_status` varchar(50) NOT NULL
+  `user_status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login_user`
+--
+
+INSERT INTO `login_user` (`id`, `name`, `email_address`, `user_password`, `user_status`) VALUES
+(3, 'Mayanja Adrian', 'mayanjaadrian242@gmail.com', '$2y$12$cJ/oTL4PVGoNuaNtW67tMe4taVuARevMQVfMnKW17tWB.9Ustubw2', ''),
+(4, 'Kaseeta C', 'kaseetac@gmail.com', '$2y$12$9lQ3Pm3nALE47JtH/cj/pOY/flkyXfL7ByjazncYzsNKJwI01RTzO', '');
 
 -- --------------------------------------------------------
 
@@ -134,7 +156,8 @@ CREATE TABLE `upload_files` (
 
 INSERT INTO `upload_files` (`ID`, `NAME`, `SIZE`, `DOWNLOAD`, `TIMERS`, `ADMIN_STATUS`, `EMAIL`) VALUES
 (1, 'ajax_tutorial.pdf', '618379', '0', 'May-29-2019 02:36 PM', 'Employee', 'Email Luis Nario'),
-(2, 'css_tutorial.pdf', '910221', '0', 'May-29-2019 02:36 PM', 'Employee', 'Email Luis Nario');
+(2, 'css_tutorial.pdf', '910221', '1', 'May-29-2019 02:36 PM', 'Employee', 'Email Luis Nario'),
+(3, 'MAYANJA ADRIAN 18-U-21096-PS 1800721096.pdf', '186000', '1', 'Jul-18-2022 06:30 PM', 'Admin', 'Kaseeta C');
 
 --
 -- Indexes for dumped tables
@@ -145,6 +168,18 @@ INSERT INTO `upload_files` (`ID`, `NAME`, `SIZE`, `DOWNLOAD`, `TIMERS`, `ADMIN_S
 --
 ALTER TABLE `admin_login`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `history_log`
+--
+ALTER TABLE `history_log`
+  ADD PRIMARY KEY (`log_id`);
+
+--
+-- Indexes for table `history_log1`
+--
+ALTER TABLE `history_log1`
+  ADD PRIMARY KEY (`log_id`);
 
 --
 -- Indexes for table `login_user`
@@ -166,19 +201,31 @@ ALTER TABLE `upload_files`
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `history_log`
+--
+ALTER TABLE `history_log`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `history_log1`
+--
+ALTER TABLE `history_log1`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `login_user`
 --
 ALTER TABLE `login_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `upload_files`
 --
 ALTER TABLE `upload_files`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

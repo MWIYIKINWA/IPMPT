@@ -1,4 +1,3 @@
-
 <?php
 
 require_once("include/connection.php");
@@ -8,10 +7,10 @@ session_start();
   date_default_timezone_set("asia/manila");
   $time = date("M-d-Y h:i A",strtotime("+0 HOURS"));
 
- $email = $_SESSION['email_address'];
+ $id = $_SESSION['user_no'];
   
 
-mysqli_query($conn,"UPDATE history_log SET `logout_time` = '$time'  WHERE `id` = '$email'");
+mysqli_query($conn,"UPDATE history_log SET `logout_time` = '$time'  WHERE `id` = '$id'");
 
 $_SESSION = NULL;
 $_SESSION = [];
@@ -22,4 +21,3 @@ echo "<script type='text/javascript'>alert('LogOut Successfully!');
 				  document.location='../login.html'</script>";
 
 ?>
-

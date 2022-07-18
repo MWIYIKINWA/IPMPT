@@ -21,4 +21,3 @@ echo "<script type='text/javascript'>alert('LogOut Successfully!');
 				  document.location='index.html'</script>";
 
 ?>
-

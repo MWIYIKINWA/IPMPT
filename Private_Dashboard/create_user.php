@@ -10,7 +10,7 @@
          $user_password = password_hash($_POST['user_password'], PASSWORD_DEFAULT, array('cost' => 12));  //PASSWORD_ARGON2I//PASSWORD_ARGON2ID
          $user_status = mysqli_real_escape_string($conn,$_POST['user_status']);
 
-	$q_checkadmin = $conn->query("SELECT * FROM `login_user` WHERE `email_address` = '$email_address'") or die(mysqli_error());
+	$q_checkadmin = $conn->query("SELECT * FROM `login_user` WHERE `email_address` = '$email_address'") or die(mysqli_error($conn));
 		$v_checkadmin = $q_checkadmin->num_rows;
 		if($v_checkadmin == 1){
 			echo '
@@ -20,7 +20,8 @@
 				</script>
 			';
 		}else{
-			$conn->query("INSERT INTO `login_user` VALUES('','$user_name', '$email_address', '$user_password', '$user_status')") or die(mysqli_error());
+			
+			$conn->query("INSERT INTO login_user(name,email_address,user_password,user_status) VALUES('$user_name', '$email_address', '$user_password', '$user_status')") or die(mysqli_error($conn));
 			echo '
 				<script type = "text/javascript">
 					alert("Saved Employee Info");window.location = "dashboard.php";
